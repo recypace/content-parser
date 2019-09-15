@@ -1,63 +1,29 @@
-import { trim, trimStart, trimEnd } from './bufferUtil';
-
-import {
-  getCachePath,
-  removeCacheFile,
-  removeAllCacheFiles,
-  readCacheFile,
-  writeCacheFile,
-} from './cacheFile';
-
 import AesCryptor from './AesCryptor';
 import CryptoProvider from './CryptoProvider';
-import Errors, { createError, mustOverride } from './errors';
 import Logger, { LogLevel } from './Logger';
-import mergeObjects from './mergeObjects';
-import parseBool from './parseBool';
 import Parser from './Parser';
 import Version from './Version';
 
-import {
-  safeDirname,
-  safePath,
-  safePathJoin,
-  getPathes,
-} from './pathUtil';
-
-import readEntries from './readEntries';
-import { conditionally } from './streamUtil';
-import { MatchOption, stringContains } from './stringContains';
-
-import {
-  getType,
-  isArray,
-  isBool,
-  isExists,
-  isFunc,
-  isObject,
-  isString,
-  isUrl,
-} from './typecheck';
-
-import validateOptions from './validateOptions';
-import openZip from './zipUtil';
-
 export {
-  trim, trimStart, trimEnd,
-  getCachePath, removeCacheFile, removeAllCacheFiles, readCacheFile, writeCacheFile,
-  AesCryptor, CryptoProvider,
-  Errors, createError, mustOverride,
+  AesCryptor,
+  CryptoProvider,
   Logger,
   LogLevel,
-  mergeObjects,
-  parseBool,
   Parser,
-  safeDirname, safePath, safePathJoin, getPathes,
-  readEntries,
-  conditionally,
-  MatchOption, stringContains,
-  getType, isArray, isBool, isExists, isFunc, isObject, isString, isUrl,
-  validateOptions,
-  openZip,
   Version,
 };
+
+export * from './bufferUtil';
+export * from './cacheFile';
+export * from './createCryptoStream';
+export * from './createSliceStream';
+export * from './errors';
+export * from './mergeObjects';
+export * from './parseBool';
+export * from './pathUtil';
+export * from './readEntries';
+export * from './streamUtil';
+export * from './stringContains';
+export * from './typecheck';
+export * from './validateOptions';
+export * from './zipUtil';

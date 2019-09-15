@@ -30,7 +30,7 @@ const normalizeKey = (obj, keyTranslator) => {
   return newObj;
 };
 
-const getValue = (any, keyTranslator) => {
+export const getValue = (any, keyTranslator) => {
   if (!isExists(any)) {
     return undefined;
   }
@@ -44,18 +44,16 @@ const getValue = (any, keyTranslator) => {
   return normalizeKey(any, keyTranslator);
 };
 
-const getValues = (any, keyTranslator) => {
+export const getValues = (any, keyTranslator) => {
   if (!isExists(any)) {
     return [];
   }
   return isArray(any) ? any.map(item => normalizeKey(item, keyTranslator)) : [normalizeKey(any, keyTranslator)];
 };
 
-const textNodeName = '#text';
+export const textNodeName = '#text';
 
-export { getValue, getValues, textNodeName };
-
-export default function xmlLoader(string) {
+export function xmlLoader(string) {
   return XmlParser.parse(string, {
     // Text node name for identification.
     textNodeName,

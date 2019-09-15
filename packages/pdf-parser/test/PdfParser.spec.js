@@ -4,11 +4,10 @@ import chaiAsPromised from 'chai-as-promised';
 import fs from 'fs-extra';
 import path from 'path';
 
-import Book from '../src/model/Book';
-import ParseContext from '../src/model/ParseContext';
 import Paths from '../../../test/paths';
 import PdfParser from '../src/PdfParser';
-import validationBook from './validationBook';
+import { Book, ParseContext } from '../src/model';
+import { validationBook } from './validationBook';
 
 chai.use(chaiAsPromised);
 should(); // Initialize should
@@ -37,6 +36,10 @@ describe('PdfParser', () => {
 
     it('Unsupported _getReadItemClass function', () => {
       try { new PdfParser(Paths.PDF)._getReadItemClass(); } catch (err) { err.code.should.equal(Errors.ENOIMP.code); }
+    });
+
+    it('Unsupported _read function', () => {
+      try { new PdfParser(Paths.PDF)._read(); } catch (err) { err.code.should.equal(Errors.ENOIMP.code); }
     });
   });
 
@@ -109,6 +112,15 @@ describe('PdfParser', () => {
         const rawBook = book.toRaw();
         const newBook = new Book(rawBook);
         validationBook(book, JSON.parse(fs.readFileSync(Paths.EXPECTED_PDF_BOOK)));
+      });
+    });
+  });
+
+  describe('Reading test', () => {
+    it('Read pdf file', () => {
+      return new PdfParser(Paths.PDF).read().then(pdfFile => {
+        const actualPdfFile = fs.readFileSync(Paths.PDF);
+        pdfFile.length.should.equal(actualPdfFile.length);
       });
     });
   });

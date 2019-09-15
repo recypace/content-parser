@@ -1,6 +1,6 @@
 import { assert, should } from 'chai';
 
-import Meta from '../../src/model/Meta';
+import { Meta } from '../../src/model';
 
 should(); // Initialize should
 

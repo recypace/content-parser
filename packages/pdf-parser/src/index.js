@@ -1,5 +1,6 @@
 import {
-  CryptoProvider, AesCryptor,
+  AesCryptor,
+  CryptoProvider,
   Errors,
   LogLevel,
 } from '@ridi/parser-core';
@@ -8,10 +9,10 @@ import PdfParser from './PdfParser';
 import Book from './model/Book';
 
 export default {
-  PdfParser,
+  AesCryptor,
+  CryptoProvider,
   Errors,
   LogLevel,
-  CryptoProvider,
-  AesCryptor,
   PdfBook: Book,
+  PdfParser,
 };

@@ -5,16 +5,20 @@ import fs from 'fs-extra';
 import path from 'path';
 
 import EpubParser from '../src/EpubParser';
-import Book from '../src/model/Book';
-import DeadItem from '../src/model/DeadItem';
-import InlineCssItem from '../src/model/InlineCssItem';
-import NcxItem from '../src/model/NcxItem';
-import SpineItem from '../src/model/SpineItem';
 import Paths from '../../../test/paths';
-import ReadContext from '../src/model/ReadContext';
-import ParseContext from '../src/model/ParseContext';
-import validationBook from './validationBook';
 import TestCryptoProvider from './TestCryptoProvider';
+
+import {
+  Book,
+  DeadItem,
+  InlineCssItem,
+  NcxItem,
+  ParseContext,
+  ReadContext,
+  SpineItem,
+} from '../src/model';
+
+import { validationBook } from './validationBook';
 
 chai.use(chaiAsPromised);
 should(); // Initialize should

@@ -1,7 +1,7 @@
+import { Errors, createError } from './errors';
 import { getType, isExists, isString } from './typecheck';
-import Errors, { createError } from './errors';
 
-export default function validateOptions(options, types, strict = false) {
+export function validateOptions(options, types, strict = false) {
   // eslint-disable-next-line no-restricted-syntax
   for (const key of Object.keys(options)) {
     if (!isExists(Object.getOwnPropertyDescriptor(types, key))) {

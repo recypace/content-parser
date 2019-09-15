@@ -1,9 +1,9 @@
 import { should } from 'chai';
 import fs from 'fs';
 
-import createSliceStream from '../src/createSliceStream';
-import { conditionally } from '../src/streamUtil';
 import Paths from '../../../test/paths';
+import { createSliceStream } from '../src/createSliceStream';
+import { conditionally } from '../src/streamUtil';
 
 should(); // Initialize should
 

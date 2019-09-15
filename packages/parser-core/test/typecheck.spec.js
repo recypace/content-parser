@@ -1,7 +1,17 @@
 import { should } from 'chai';
 
 import Book from '../../epub-parser/src/model/Book';
-import { isArray, isBool, isExists, isFunc, isObject, isString, isUrl, getType } from '../src/typecheck';
+
+import {
+  isArray,
+  isBool,
+  isExists,
+  isFunc,
+  isObject,
+  isString,
+  isUrl,
+  getType,
+} from '../src/typecheck';
 
 should(); // Initialize should
 

@@ -1,8 +1,8 @@
 import { isExists } from '@ridi/parser-core';
 
-import Book from '../src/model/Book';
+import { Book } from '../src/model';
 
-export default function validationBook(book, expectedBook) {
+export function validationBook(book, expectedBook) {
   book.should.be.an.instanceOf(Book);
 
   book.version.toString().should.deep.equal(expectedBook.version);

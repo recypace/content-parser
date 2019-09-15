@@ -1,9 +1,8 @@
 import { isExists } from '@ridi/parser-core';
 
-import Book from '../src/model/Book';
-import Item from '../src/model/Item';
+import { Book, Item } from '../src/model';
 
-export default function validationBook(book, expectedBook, parseOptions = {}) {
+export function validationBook(book, expectedBook, parseOptions = {}) {
   book.should.be.an.instanceOf(Book);
 
   book.items.should.have.lengthOf(expectedBook.items.length);

@@ -1,6 +1,6 @@
 import { assert, should } from 'chai';
 
-import DateTime from '../../src/model/DateTime';
+import { DateTime } from '../../src/model';
 
 should(); // Initialize should
 

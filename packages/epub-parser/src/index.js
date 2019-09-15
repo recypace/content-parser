@@ -1,17 +1,18 @@
 import {
-  CryptoProvider, AesCryptor,
+  AesCryptor,
+  CryptoProvider,
   Errors,
   LogLevel,
 } from '@ridi/parser-core';
 
-import EpubParser from './EpubParser';
 import Book from './model/Book';
+import EpubParser from './EpubParser';
 
 export default {
+  AesCryptor,
+  CryptoProvider,
+  EpubBook: Book,
   EpubParser,
   Errors,
   LogLevel,
-  CryptoProvider,
-  AesCryptor,
-  EpubBook: Book,
 };

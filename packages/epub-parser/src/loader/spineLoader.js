@@ -1,7 +1,10 @@
 import {
-  isExists, isFunc, isUrl,
+  isExists,
+  isFunc,
+  isUrl,
   mergeObjects,
-  safeDirname, safePathJoin,
+  safeDirname,
+  safePathJoin,
 } from '@ridi/parser-core';
 
 import { arrayIncludes } from 'himalaya/lib/compat';
@@ -9,7 +12,7 @@ import { parse, parseDefaults } from 'himalaya';
 import path from 'path';
 
 import CssItem from '../model/CssItem';
-import cssLoader from './cssLoader';
+import { cssLoader } from './cssLoader';
 
 // Type reference: https://github.com/andrejewski/himalaya/blob/master/text/ast-spec-v1.md
 const Types = {
@@ -126,7 +129,7 @@ function getStringifyOptions(spineItem, options) {
   return mergeObjects(parseDefaults, mergeObjects(options, additional));
 }
 
-export default function spineLoader(spineItem, string, options = {}) {
+export function spineLoader(spineItem, string, options = {}) {
   const ast = parse(string);
   const stringifyOptions = getStringifyOptions(spineItem, options);
 

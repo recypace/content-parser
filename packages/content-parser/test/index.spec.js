@@ -1,29 +1,29 @@
 import { assert } from 'chai';
 
 import {
-  EpubParser,
-  EpubBook,
-  ComicParser,
+  AesCryptor,
+  CryptoProvider,
   ComicBook,
-  PdfParser,
-  PdfBook,
+  ComicParser,
+  EpubBook,
+  EpubParser,
   Errors,
   LogLevel,
-  CryptoProvider,
-  AesCryptor,
+  PdfBook,
+  PdfParser,
 } from '../src/index';
 
 describe('content-parser', () => {
   it('Check imports', () => {
-    assert(EpubParser.constructor !== null);
-    assert(EpubBook.constructor !== null);
-    assert(ComicParser.constructor !== null);
+    assert(AesCryptor.constructor !== null);
     assert(ComicBook.constructor !== null);
-    assert(PdfParser.constructor !== null);
-    assert(PdfBook.constructor !== null);
+    assert(ComicParser.constructor !== null);
+    assert(CryptoProvider.constructor !== null);
+    assert(EpubBook.constructor !== null);
+    assert(EpubParser.constructor !== null);
     assert(Errors !== null);
     assert(LogLevel !== null);
-    assert(CryptoProvider.constructor !== null);
-    assert(AesCryptor.constructor !== null);
+    assert(PdfBook.constructor !== null);
+    assert(PdfParser.constructor !== null);
   });
 });

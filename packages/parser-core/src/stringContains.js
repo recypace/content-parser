@@ -1,13 +1,13 @@
 import { isExists } from './typecheck';
 
-const MatchOption = {
+export const MatchOption = {
   MATCHING: 0,
   CONTAINING: 1,
   STARTSWITH: 2,
   ENDSWITH: 3,
 };
 
-function stringContains(array = [], string = '', matchOption = MatchOption.MATCHING) {
+export function stringContains(array = [], string = '', matchOption = MatchOption.MATCHING) {
   const lString = string.toLowerCase();
   return isExists(array.find((item) => {
     const lItem = item.toLowerCase();
@@ -28,8 +28,3 @@ function stringContains(array = [], string = '', matchOption = MatchOption.MATCH
     return false;
   }));
 }
-
-export {
-  MatchOption,
-  stringContains,
-};

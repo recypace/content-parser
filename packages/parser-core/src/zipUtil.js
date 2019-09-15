@@ -4,13 +4,13 @@ import path from 'path';
 import StreamChopper from 'stream-chopper';
 import unzipper from 'unzipper';
 
-import { trimEnd } from './bufferUtil';
-import createCryptoStream from './createCryptoStream';
-import createSliceStream from './createSliceStream';
 import CryptoProvider from './CryptoProvider';
-import { isExists, isString } from './typecheck';
+import { trimEnd } from './bufferUtil';
+import { createCryptoStream } from './createCryptoStream';
+import { createSliceStream } from './createSliceStream';
 import { safePathJoin } from './pathUtil';
 import { conditionally } from './streamUtil';
+import { isExists, isString } from './typecheck';
 
 function find(entryPath) {
   return this.files.find(entry => entryPath === entry.path);
@@ -103,7 +103,7 @@ async function extractAll(unzipPath, overwrite = true) {
   }, Promise.resolve());
 }
 
-export default async function openZip(file, cryptoProvider, logger) {
+export async function openZip(file, cryptoProvider, logger) {
   let open = unzipper.Open.file;
   if (!isString(file)) {
     open = unzipper.Open.buffer;

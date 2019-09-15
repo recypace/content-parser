@@ -1,73 +1,140 @@
 import { assert } from 'chai';
 
 import {
-  getCachePath, removeCacheFile, removeAllCacheFiles, readCacheFile, writeCacheFile,
-  AesCryptor, CryptoProvider,
-  Errors, createError, mustOverride,
+  /* ../src/AesCryptor */
+  AesCryptor,
+  /* ../src/CryptoProvider */
+  CryptoProvider,
+  /* ../src/Parser */
+  Parser,
+  /* ../src/Version */
+  Version,
+  /* ../src/Logger */
   Logger,
   LogLevel,
+  /* ../src/bufferUtil */
+  trim,
+  trimEnd,
+  trimStart,
+  /* ../src/cacheFile */
+  getCachePath,
+  removeAllCacheFiles,
+  removeCacheFile,
+  readCacheFile,
+  writeCacheFile,
+  /* ../src/createCryptoStream */
+  createCryptoStream,
+  /* ../src/createSliceStream */
+  createSliceStream,
+  /* ../src/errors */
+  Errors,
+  createError,
+  mustOverride,
+  /* ../src/mergeObjects */
   mergeObjects,
+  /* ../src/parseBool */
   parseBool,
-  Parser,
-  safeDirname, safePath, safePathJoin, getPathes,
+  /* ../src/pathUtil */
+  getPathes,
+  safeDirname,
+  safePath,
+  safePathJoin,
+  /* ../src/readEntries */
   readEntries,
+  /* ../src/streamUtil */
+  conditionally,
+  /* ../src/stringContains */
   stringContains,
-  getType, isArray, isBool, isExists, isFunc, isObject, isString, isUrl,
+  /* ../src/typecheck */
+  getType,
+  isArray,
+  isBool,
+  isExists,
+  isFunc,
+  isObject,
+  isString,
+  isUrl,
+  /* ../src/validateOptions */
   validateOptions,
+  /* ../src/zipUtil */
   openZip,
 } from '../src/index';
 
 describe('parser-core', () => {
   it('Check imports', () => {
-    assert(getCachePath !== null);
-    assert(removeCacheFile !== null);
-    assert(removeAllCacheFiles !== null);
-    assert(readCacheFile !== null);
-    assert(writeCacheFile !== null);
+    /* ../src/AesCryptor */
+    assert(AesCryptor.constructor !== undefined);
+    assert(AesCryptor.Encoding !== undefined);
+    assert(AesCryptor.Mode !== undefined);
 
-    assert(CryptoProvider.constructor !== null);
-    assert(CryptoProvider.Purpose !== null);
-    assert(AesCryptor.constructor !== null);
-    assert(AesCryptor.hex !== null);
-    assert(AesCryptor.utf8 !== null);
-    assert(AesCryptor.Modes !== null);
-    assert(AesCryptor.Counter !== null);
-    assert(AesCryptor.Padding !== null);
+    /* ../src/CryptoProvider */
+    assert(CryptoProvider.constructor !== undefined);
+    assert(CryptoProvider.Purpose !== undefined);
 
-    assert(Errors !== null);
-    assert(createError !== null);
-    assert(mustOverride !== null);
+    /* ../src/Parser */
+    assert(Parser.constructor !== undefined);
+    assert(Parser.Action !== undefined);
 
-    assert(Logger.constructor !== null);
-    assert(LogLevel !== null);
+    /* ../src/Version */
+    assert(Version.constructor !== undefined);
 
-    assert(mergeObjects !== null);
+    /* ../src/Logger */
+    assert(Logger.constructor !== undefined);
+    assert(LogLevel !== undefined);
 
-    assert(parseBool !== null);
+    /* ../src/cacheFile */
+    assert(getCachePath !== undefined);
+    assert(removeAllCacheFiles !== undefined);
+    assert(removeCacheFile !== undefined);
+    assert(readCacheFile !== undefined);
+    assert(writeCacheFile !== undefined);
 
-    assert(Parser.constructor !== null);
-    assert(Parser.Action !== null);
+    /* ../src/createCryptoStream */
+    assert(createCryptoStream !== undefined);
 
-    assert(safeDirname !== null);
-    assert(safePath !== null);
-    assert(safePathJoin !== null);
-    assert(getPathes !== null);
+    /* ../src/createSliceStream */
+    assert(createSliceStream !== undefined);
 
-    assert(readEntries !== null);
+    /* ../src/errors */
+    assert(Errors !== undefined);
+    assert(createError !== undefined);
+    assert(mustOverride !== undefined);
 
-    assert(stringContains !== null);
+    /* ../src/mergeObjects */
+    assert(mergeObjects !== undefined);
 
-    assert(getType !== null);
-    assert(isArray !== null);
-    assert(isBool !== null);
-    assert(isExists !== null);
-    assert(isFunc !== null);
-    assert(isObject !== null);
-    assert(isString !== null);
-    assert(isUrl !== null);
+    /* ../src/parseBool */
+    assert(parseBool !== undefined);
 
-    assert(validateOptions !== null);
+    /* ../src/pathUtil */
+    assert(getPathes !== undefined);
+    assert(safeDirname !== undefined);
+    assert(safePath !== undefined);
+    assert(safePathJoin !== undefined);
 
-    assert(openZip !== null);
+    /* ../src/readEntries */
+    assert(readEntries !== undefined);
+
+    /* ../src/streamUtil */
+    assert(conditionally !== undefined);
+
+    /* ../src/stringContains */
+    assert(stringContains !== undefined);
+
+    /* ../src/typecheck */
+    assert(getType !== undefined);
+    assert(isArray !== undefined);
+    assert(isBool !== undefined);
+    assert(isExists !== undefined);
+    assert(isFunc !== undefined);
+    assert(isObject !== undefined);
+    assert(isString !== undefined);
+    assert(isUrl !== undefined);
+
+    /* ../src/validateOptions */
+    assert(validateOptions !== undefined);
+
+    /* ../src/zipUtil */
+    assert(openZip !== undefined);
   });
 });

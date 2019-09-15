@@ -2,16 +2,16 @@
 import fs from 'fs-extra';
 import path from 'path';
 
-import { trimEnd } from './bufferUtil';
-import { removeCacheFile, readCacheFile, writeCacheFile } from './cacheFile';
-import createCryptoStream from './createCryptoStream';
-import createSliceStream from './createSliceStream';
 import CryptoProvider from './CryptoProvider';
-import Errors, { createError } from './errors';
+import { trimEnd } from './bufferUtil';
+import { readCacheFile, removeCacheFile, writeCacheFile } from './cacheFile';
+import { createCryptoStream } from './createCryptoStream';
+import { createSliceStream } from './createSliceStream';
+import { Errors, createError } from './errors';
 import { getPathes, safePath } from './pathUtil';
 import { conditionally } from './streamUtil';
 import { isExists } from './typecheck';
-import openZip from './zipUtil';
+import { openZip } from './zipUtil';
 
 function getReadStreamOptions(cryptoProvider) {
   let options = {};
@@ -124,7 +124,7 @@ function fromFile(filePath, cryptoProvider) {
   }]);
 }
 
-export default async function readEntries(input, cryptoProvider, logger) {
+export async function readEntries(input, cryptoProvider, logger) {
   if (fs.lstatSync(input).isFile()) { // TODO: When input is Buffer.
     if (path.extname(input).toLowerCase() === '.pdf') {
       return fromFile(input, cryptoProvider);

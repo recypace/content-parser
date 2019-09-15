@@ -1,8 +1,8 @@
 import { assert } from 'chai';
 import fs from 'fs';
 
-import createSliceStream from '../src/createSliceStream';
 import Paths from '../../../test/paths';
+import { createSliceStream } from '../src/createSliceStream';
 
 describe('Util - createSliceStream', () => {
   const filePath = Paths.DEFAULT;

@@ -4,7 +4,7 @@ import fs from 'fs';
 
 import EpubParser from '../../src/EpubParser';
 import Paths from '../../../../test/paths';
-import spineLoader from '../../src/loader/spineLoader';
+import { spineLoader } from '../../src/loader/spineLoader';
 
 should(); // Initialize should
 
@@ -24,7 +24,7 @@ describe('Loader - Spine', () => {
     let extractBody = (innerHTML, attrs) => {
       return `<article ${attrs.map(attr => `${attr.key}="${attr.value}"`).join(' ')}>${innerHTML}</article>`;
     };
-    result = spineLoader({ styles }, origin, { extractBody });
+    result = spineLoader({}, origin, { extractBody });
     result.should.equal(JSON.parse(read(Paths.SPINE_LOADER_ADAPTER)).value);
 
     // with parseOptions.parseStyle option.

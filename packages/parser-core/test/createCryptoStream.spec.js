@@ -1,9 +1,9 @@
 import { assert } from 'chai';
 import fs from 'fs';
 
-import createCryptoStream from '../src/createCryptoStream';
 import Paths from '../../../test/paths';
 import TestCryptoProvider from '../../epub-parser/test/TestCryptoProvider';
+import { createCryptoStream } from '../src/createCryptoStream';
 
 describe('Util - createCryptoStream', () => {
   it('Always send a size that can be divided by 16', () => {

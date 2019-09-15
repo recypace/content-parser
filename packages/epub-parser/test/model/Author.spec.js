@@ -1,6 +1,6 @@
 import { assert, should } from 'chai';
 
-import Author from '../../src/model/Author';
+import { Author } from '../../src/model';
 
 should(); // Initialize should
 

@@ -1,8 +1,7 @@
 import { isArray } from '@ridi/parser-core';
 import { assert, should } from 'chai';
 
-import NavPoint from '../../src/model/NavPoint';
-import SpineItem from '../../src/model/SpineItem';
+import { NavPoint, SpineItem } from '../../src/model';
 
 should(); // Initialize should
 

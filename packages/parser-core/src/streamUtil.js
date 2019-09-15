@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import es from 'event-stream';
 
 import { isFunc } from './typecheck';

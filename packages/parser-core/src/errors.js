@@ -1,6 +1,6 @@
 import format from 'string-format';
 
-const Errors = {
+export const Errors = {
   ENOENT: { code: 'ENOENT', format: 'ENOENT: no such file or directory. (path: {0})' },
   ENOFILE: { code: 'ENOFILE', format: 'ENOFILE: no such file. (path: {0})' },
   EEXIST: { code: 'EEXIST', format: 'EEXIST: file or directory already exists. (path: {0})' },
@@ -13,7 +13,6 @@ const Errors = {
   EPDFJS: { code: 'EPDFJS', format: 'EPDFJS: pdf.js internal error. (detail: {0})' },
   ENOIMP: { code: 'ENOIMP', format: 'ENOIMP: function not implemented.' },
 };
-export default Errors;
 
 export function createError(type, ...args) {
   const error = new Error(format(type.format, ...args));

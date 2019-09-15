@@ -1,6 +1,6 @@
 import es from 'event-stream';
 
-const createCryptoStream = (filePath, totalSize, cryptoProvider, purpose) => {
+export const createCryptoStream = (filePath, totalSize, cryptoProvider, purpose) => {
   let tmpChunk = Buffer.from([]);
   let pushedSize = 0;
   return es.map((chunk, callback) => { // eslint-disable-line
@@ -17,5 +17,3 @@ const createCryptoStream = (filePath, totalSize, cryptoProvider, purpose) => {
     }
   });
 };
-
-export default createCryptoStream;

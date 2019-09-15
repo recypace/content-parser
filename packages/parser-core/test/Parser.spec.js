@@ -2,10 +2,10 @@ import { should, assert } from 'chai';
 import path from 'path';
 
 import CryptoProvider from '../src/CryptoProvider';
-import Errors from '../src/errors';
 import { LogLevel } from '../src/Logger';
 import Parser from '../src/Parser';
 import Paths from '../../../test/paths';
+import { Errors } from '../src/errors';
 import { isString } from '../src/typecheck';
 
 should(); // Initialize should

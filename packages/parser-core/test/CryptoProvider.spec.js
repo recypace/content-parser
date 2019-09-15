@@ -1,7 +1,7 @@
 import { should, assert } from 'chai';
 
-import Errors from '../src/errors';
 import CryptoProvider from '../src/CryptoProvider';
+import { Errors } from '../src/errors';
 
 should(); // Initialize should
 

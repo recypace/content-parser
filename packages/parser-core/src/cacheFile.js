@@ -3,8 +3,8 @@ import os from 'os';
 import path from 'path';
 import sha1 from 'sha1';
 
+import { Errors, createError } from './errors';
 import { isExists, isString } from './typecheck';
-import Errors, { createError } from './errors';
 
 export function getCachePath() {
   return path.join(os.tmpdir(), 'parser-cache');

@@ -1,7 +1,7 @@
 import { should } from 'chai';
 
-import Errors from '../src/errors';
-import validateOptions from '../src/validateOptions';
+import { Errors } from '../src/errors';
+import { validateOptions } from '../src/validateOptions';
 
 should(); // Initialize should
 

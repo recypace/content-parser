@@ -1,7 +1,9 @@
 import {
-  Errors, createError,
-  isExists, isString,
+  Errors,
   Parser,
+  createError,
+  isExists,
+  isString,
   stringContains,
 } from '@ridi/parser-core';
 
@@ -9,10 +11,12 @@ import sizeOf from 'image-size';
 import path from 'path';
 import naturalCompare from 'string-natural-compare';
 
-import Book from './model/Book';
-import Item from './model/Item';
-import ReadContext from './model/ReadContext';
-import ParseContext from './model/ParseContext';
+import {
+  Book,
+  Item,
+  ReadContext,
+  ParseContext,
+} from './model';
 
 class ComicParser extends Parser {
   /**
@@ -177,8 +181,7 @@ class ComicParser extends Parser {
     await items.reduce((prevPromise, item) => {
       return prevPromise.then(async () => {
         const entry = entries.find(item.path);
-        /* istanbul ignore else */
-        if (!options.force && !isExists(entry)) {
+        if (!isExists(entry)) {
           throw createError(Errors.ENOFILE, item.path);
         }
         const file = await entry.getFile();

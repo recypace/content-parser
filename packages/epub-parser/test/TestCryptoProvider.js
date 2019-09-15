@@ -1,4 +1,4 @@
-import { CryptoProvider, AesCryptor } from '@ridi/parser-core';
+import { AesCryptor, CryptoProvider } from '@ridi/parser-core';
 
 const { Purpose } = CryptoProvider;
 const { Mode, Padding } = AesCryptor;

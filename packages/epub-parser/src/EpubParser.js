@@ -1,30 +1,45 @@
 import {
-  Errors, createError,
-  isArray, isExists, isString, isUrl,
+  Errors,
+  Parser,
+  createError,
+  isArray,
+  isExists,
+  isString,
+  isUrl,
   mergeObjects,
   parseBool,
-  Parser,
-  safeDirname, safePath, safePathJoin,
+  safeDirname,
+  safePath,
+  safePathJoin,
 } from '@ridi/parser-core';
 
 import { parse as parseHtml } from 'himalaya';
 
-import Book from './model/Book';
-import CssItem from './model/CssItem';
-import cssLoader from './loader/cssLoader';
-import DeadItem from './model/DeadItem';
-import FontItem from './model/FontItem';
-import Guide from './model/Guide';
-import ImageItem from './model/ImageItem';
-import InlineCssItem from './model/InlineCssItem';
-import Item from './model/Item';
-import NcxItem from './model/NcxItem';
-import ReadContext from './model/ReadContext';
-import SpineItem from './model/SpineItem';
-import spineLoader from './loader/spineLoader';
-import SvgItem from './model/SvgItem';
-import ParseContext from './model/ParseContext';
-import xmlLoader, { getValue, getValues, textNodeName } from './loader/xmlLoader';
+import { cssLoader } from './loader/cssLoader';
+import { spineLoader } from './loader/spineLoader';
+
+import {
+  getValue,
+  getValues,
+  textNodeName,
+  xmlLoader,
+} from './loader/xmlLoader';
+
+import {
+  Book,
+  CssItem,
+  DeadItem,
+  FontItem,
+  Guide,
+  ImageItem,
+  InlineCssItem,
+  Item,
+  NcxItem,
+  ReadContext,
+  ParseContext,
+  SpineItem,
+  SvgItem,
+} from './model';
 
 class EpubParser extends Parser {
   /**

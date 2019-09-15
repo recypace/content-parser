@@ -4,13 +4,10 @@ import chaiAsPromised from 'chai-as-promised';
 import fs from 'fs-extra';
 import path from 'path';
 
-import Book from '../src/model/Book';
 import ComicParser from '../src/ComicParser';
-import Item from '../src/model/Item';
-import ReadContext from '../src/model/ReadContext';
-import ParseContext from '../src/model/ParseContext';
 import Paths from '../../../test/paths';
-import validationBook from './validationBook';
+import { Book, Item, ParseContext } from '../src/model';
+import { validationBook } from './validationBook';
 
 chai.use(chaiAsPromised);
 should(); // Initialize should
@@ -122,7 +119,19 @@ describe('ComicParser', () => {
           });
         });
   
-        it('Read single item with force', () => {
+        it('Read single item with object, force(false) option', () => {
+          return parser.readItem({ path: '1.jpg' }).catch(err => {
+            err.code.should.equal(Errors.EINVAL.code);
+          });
+        });
+
+        it('Read single item with invalid object, force(true) option', () => {
+          return parser.readItem({ path: '11111.jpg' }, { force: true }).catch(err => {
+            err.code.should.equal(Errors.ENOFILE.code);
+          });
+        });
+
+        it('Read single item with object, force(true) option', () => {
           return parser.readItem({ path: '1.jpg' }, { force: true }).then((result) => {
             const expected = fs.readFileSync(Paths.COMIC_FIRST);
             result.length.should.equal(expected.length);

@@ -1,9 +1,9 @@
 import { should } from 'chai';
 import fs from 'fs-extra';
 
-import Errors from '../src/errors';
-import openZip from '../src/zipUtil';
 import Paths from '../../../test/paths';
+import { Errors } from '../src/errors';
+import { openZip } from '../src/zipUtil';
 
 should(); // Initialize should
 

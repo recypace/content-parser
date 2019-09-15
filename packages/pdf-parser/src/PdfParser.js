@@ -1,7 +1,9 @@
 import {
-  Errors, createError,
-  isExists, isString,
+  Errors,
   Parser,
+  createError,
+  isExists,
+  isString,
   readEntries,
 } from '@ridi/parser-core';
 
@@ -9,8 +11,7 @@ import fs from 'fs';
 import pdfJs, { PDFWorker } from 'pdfjs-dist';
 import uuid from 'uuid/v4';
 
-import Book from './model/Book';
-import ParseContext from './model/ParseContext';
+import { Book, ParseContext } from './model';
 
 class PdfParser extends Parser {
   /**

@@ -1,4 +1,4 @@
-import Errors, { createError, mustOverride } from './errors';
+import { Errors, createError, mustOverride } from './errors';
 
 const Purpose = Object.freeze({
   READ_IN_ZIP: 'read_in_zip',

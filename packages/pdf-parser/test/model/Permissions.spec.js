@@ -1,6 +1,6 @@
 import { assert, should } from 'chai';
 
-import Permissions from '../../src/model/Permissions';
+import { Permissions } from '../../src/model';
 
 should(); // Initialize should
 

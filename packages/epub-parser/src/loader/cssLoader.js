@@ -1,12 +1,11 @@
 import {
   isExists,
-  isUrl,
   isFunc,
-  stringContains,
+  isUrl,
   safeDirname,
   safePathJoin,
+  stringContains,
 } from '@ridi/parser-core';
-
 
 import csstree, { List } from 'css-tree';
 
@@ -157,7 +156,7 @@ const handlers = {
   Rule: handleRuleset,
 };
 
-export default function cssLoader(cssItem, string, options = {}) {
+export function cssLoader(cssItem, string, options = {}) {
   const ast = csstree.parse(string);
   csstree.walk(ast, {
     leave: function (node, item, list) { // eslint-disable-line

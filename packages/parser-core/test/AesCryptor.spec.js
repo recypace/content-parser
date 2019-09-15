@@ -1,11 +1,7 @@
 import { should } from 'chai';
 
-import AesCryptor, {
-  Padding,
-  Encoding,
-  Mode,
-} from '../src/AesCryptor';
-import Errors from '../src/errors';
+import AesCryptor, { Encoding, Mode, Padding } from '../src/AesCryptor';
+import { Errors } from '../src/errors';
 
 should(); // Initialize should
 

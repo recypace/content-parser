@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
-import { isExists } from './typecheck';
 import { stringContains } from './stringContains';
+import { isExists } from './typecheck';
 
-const LogLevel = Object.freeze({
+export const LogLevel = Object.freeze({
   SILENT: 'silent',
   ERROR: 'error',
   WARN: 'warn',
@@ -24,7 +24,7 @@ const getOrder = (logLevel) => {
 
 const touchTime = time => new Date().getTime() - time;
 
-class Logger {
+export default class Logger {
   get logLevel() { return this._logLevel; }
 
   set logLevel(level) { this._logLevel = stringContains(Object.values(LogLevel), level) ? level : this.logLevel; }
@@ -102,7 +102,3 @@ class Logger {
     this._firstTime = null;
   }
 }
-
-export default Logger;
-
-export { LogLevel };

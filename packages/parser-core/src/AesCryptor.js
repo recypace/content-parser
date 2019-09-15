@@ -1,12 +1,11 @@
 /* eslint-disable no-bitwise, no-plusplus */
 import CryptoJs from 'crypto-js';
 
-import Errors, { createError } from './errors';
-import mergeObjects from './mergeObjects';
+import { Errors, createError } from './errors';
+import { mergeObjects } from './mergeObjects';
 import { stringContains } from './stringContains';
-import validateOptions from './validateOptions';
-
 import { isExists, isObject, isString } from './typecheck';
+import { validateOptions } from './validateOptions';
 
 const {
   pad, enc, mode: aesMode, AES,
@@ -261,8 +260,14 @@ class AesCryptor {
   }
 }
 
-AesCryptor.Padding = Padding;
 AesCryptor.Encoding = Encoding;
 AesCryptor.Mode = Mode;
+AesCryptor.Padding = Padding;
+
+export {
+  Encoding,
+  Mode,
+  Padding,
+};
 
 export default AesCryptor;

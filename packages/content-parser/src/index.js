@@ -1,22 +1,23 @@
 import {
-  CryptoProvider, AesCryptor,
+  AesCryptor,
+  CryptoProvider,
   Errors,
   LogLevel,
 } from '@ridi/parser-core';
 
-import { EpubParser, EpubBook } from '@ridi/epub-parser';
-import { ComicParser, ComicBook } from '@ridi/comic-parser';
-import { PdfParser, PdfBook } from '@ridi/pdf-parser';
+import { ComicBook, ComicParser } from '@ridi/comic-parser';
+import { EpubBook, EpubParser } from '@ridi/epub-parser';
+import { PdfBook, PdfParser } from '@ridi/pdf-parser';
 
 export default {
-  EpubParser,
-  EpubBook,
-  ComicParser,
+  AesCryptor,
   ComicBook,
-  PdfParser,
-  PdfBook,
+  ComicParser,
+  CryptoProvider,
+  EpubBook,
+  EpubParser,
   Errors,
   LogLevel,
-  CryptoProvider,
-  AesCryptor,
+  PdfBook,
+  PdfParser,
 };

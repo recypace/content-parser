@@ -2,12 +2,12 @@ import { should } from 'chai';
 import fs from 'fs';
 import path from 'path';
 
-import { readCacheFile, writeCacheFile } from '../src/cacheFile';
-import Errors from '../src/errors';
-import { isExists, isString } from '../src/typecheck';
-import readEntries from '../src/readEntries';
-import { stringContains } from '../src/stringContains';
 import Paths from '../../../test/paths';
+import { readCacheFile, writeCacheFile } from '../src/cacheFile';
+import { Errors } from '../src/errors';
+import { readEntries } from '../src/readEntries';
+import { stringContains } from '../src/stringContains';
+import { isExists, isString } from '../src/typecheck';
 
 should(); // Initialize should
 

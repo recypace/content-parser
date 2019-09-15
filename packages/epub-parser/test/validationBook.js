@@ -1,11 +1,10 @@
 import { isExists } from '@ridi/parser-core';
 import { assert } from 'chai';
 
-import Book from '../src/model/Book';
 import EpubParser from '../src/EpubParser';
-import SpineItem from '../src/model/SpineItem';
+import { Book, SpineItem } from '../src/model';
 
-export default function validationBook(book, expectedBook, options = EpubParser.parseDefaultOptions) {
+export function validationBook(book, expectedBook, options = EpubParser.parseDefaultOptions) {
   book.should.be.an.instanceOf(Book);
 
   book.titles.should.have.lengthOf(expectedBook.titles.length);

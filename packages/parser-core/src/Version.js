@@ -1,4 +1,4 @@
-class Version {
+export default class Version {
   constructor(string) {
     if (!/(?:0|[1-9]\d*)(?:\.(?:0|[1-9]\d*)){0,3}/gm.test(string)) {
       string = '1.0';
@@ -14,5 +14,3 @@ class Version {
     return `${this.major}.${this.minor}.${this.patch}`;
   }
 }
-
-export default Version;

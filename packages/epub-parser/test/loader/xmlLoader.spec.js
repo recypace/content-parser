@@ -1,6 +1,11 @@
 import { assert, should } from 'chai';
 
-import xmlLoader, { getValue, getValues, textNodeName } from '../../src/loader/xmlLoader';
+import { 
+  getValue,
+  getValues,
+  textNodeName,
+  xmlLoader,
+} from '../../src/loader/xmlLoader';
 
 should(); // Initialize should
 

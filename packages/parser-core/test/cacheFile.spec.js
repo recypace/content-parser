@@ -3,13 +3,13 @@ import fs from 'fs';
 
 import {
   getCachePath,
-  removeCacheFile,
-  removeAllCacheFiles,
   readCacheFile,
+  removeAllCacheFiles,
+  removeCacheFile,
   writeCacheFile,
 } from '../src/cacheFile';
 
-import Errors from '../src/errors';
+import { Errors } from '../src/errors';
 
 should(); // Initialize should
 

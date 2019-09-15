@@ -1,6 +1,6 @@
 import { should } from 'chai';
 
-import mergeObjects from '../src/mergeObjects';
+import { mergeObjects } from '../src/mergeObjects';
 
 should(); // Initialize should
 

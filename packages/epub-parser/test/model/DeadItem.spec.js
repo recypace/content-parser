@@ -1,7 +1,6 @@
 import { assert, should } from 'chai';
 
-import DeadItem from '../../src/model/DeadItem';
-import Item from '../../src/model/Item';
+import { DeadItem, Item } from '../../src/model';
 
 should(); // Initialize should
 

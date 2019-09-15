@@ -1,10 +1,11 @@
 import fs from 'fs';
 
-import { removeCacheFile } from './cacheFile';
 import CryptoProvider from './CryptoProvider';
-import Errors, { createError, mustOverride } from './errors';
 import Logger from './Logger';
-import mergeObjects from './mergeObjects';
+import { removeCacheFile } from './cacheFile';
+import { Errors, createError, mustOverride } from './errors';
+import { mergeObjects } from './mergeObjects';
+import { readEntries } from './readEntries';
 
 import {
   isArray,
@@ -13,8 +14,7 @@ import {
   isString,
 } from './typecheck';
 
-import readEntries from './readEntries';
-import validateOptions from './validateOptions';
+import { validateOptions } from './validateOptions';
 
 const Action = Object.freeze({
   PARSE: 'parse',
