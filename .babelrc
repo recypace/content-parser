@@ -1,14 +1,18 @@
 {
   "presets": [
-		["env"]
+		[
+			"@babel/preset-env",
+			{
+        "targets": {
+          "node": "current"
+        }
+      }
+		]
 	],
 	"plugins": [
-		"add-module-exports",
-		["transform-es2015-classes", {
-			"loose": true
-		}],
-		"transform-object-rest-spread",
-		"transform-runtime"
+		"@babel/plugin-proposal-object-rest-spread",
+		"@babel/plugin-transform-runtime",
+		"babel-plugin-add-module-exports"
 	],
 	"comments": true
 }
