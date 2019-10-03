@@ -4,6 +4,7 @@ import chaiAsPromised from 'chai-as-promised';
 import fs from 'fs-extra';
 import path from 'path';
 
+import DummyDocument from './DummyDocument';
 import Paths from '../../../test/paths';
 import PdfParser from '../src/PdfParser';
 import { Book, ParseContext } from '../src/model';
@@ -99,7 +100,29 @@ describe('PdfParser', () => {
       });
     });
 
-    describe('Use fakeWorker option', () => {
+    it('Outline parse test by edge cases', () => {
+      const parser = new PdfParser(Paths.PDF);
+      const context = new ParseContext();
+      context.document = new DummyDocument(JSON.parse(fs.readFileSync(Paths.OUTLINE)));
+      return parser._parseOutline(context).then(context => {
+        const expected = JSON.parse(fs.readFileSync(Paths.EXPECTED_OUTLINE));
+        const book = new Book(context.rawBook);
+        const actual = book.outlineItems;
+        actual.forEach((item, idx) => {
+          const expectedItem = expected[idx];
+          item.title.should.equal(expectedItem.title);
+          if (item.title.startsWith('Case 1')) {
+            item.page.should.equal(4);
+          } else if (item.title.startsWith('Case 2')) {
+            item.page.should.equal(5);
+          } else {
+            isExists(item.page).should.be.false;
+          }
+        });
+      });
+    });
+
+    it('Use fakeWorker option', () => {
       return new PdfParser(Paths.PDF).parse({ fakeWorker: true }).then(book => {
         validationBook(book, JSON.parse(fs.readFileSync(Paths.EXPECTED_PDF_BOOK)));
       });

@@ -2,6 +2,7 @@ import {
   Errors,
   Parser,
   createError,
+  isArray,
   isExists,
   isString,
   readEntries,
@@ -112,15 +113,15 @@ class PdfParser extends Parser {
    * @returns {*}
    */
   async _execute(that, fun, args = []) {
-    const result = await new Promise(async (resolve) => {
+    const result = await new Promise(async (resolve, reject) => {
       let runner = fun.apply(that, args);
       if (isExists(runner.promise)) {
         runner = runner.promise;
       }
       runner.then((data) => {
         resolve(data);
-      }).catch((error) => { /* istanbul ignore next */
-        throw createError(Errors.EPDFJS, error);
+      }).catch((error) => {
+        reject(createError(Errors.EPDFJS, error));
       });
     });
     return result;
@@ -179,13 +180,23 @@ class PdfParser extends Parser {
               new Promise(async (resolve) => {
                 let ref = item.dest;
                 let key = ref;
-                if (isString(ref)) {
+                if (isArray(ref) && ref.length > 0 && isExists(ref[0].num)) {
+                  key = ref[0].num;
+                } else if (isString(ref)) {
                   ref = await this._execute(document, document.getDestination, [ref]);
                 } else {
-                  key = ref[0].num;
+                  this.logger.warn('Outline \'%s\' ignored. (reason: pageIndexRef not found)', item.title);
+                  resolve(null);
+                  return;
                 }
-                const page = await this._execute(document, document.getPageIndex, [ref[0]]);
-                resolve({ [`${key}`]: page });
+
+                try {
+                  const page = await this._execute(document, document.getPageIndex, [ref[0]]);
+                  resolve({ [`${key}`]: page });
+                } catch (error) {
+                  this.logger.warn('Outline \'%s\' ignored. (reason: %s)', item.title, error.toString());
+                  resolve(null);
+                }
               }),
               ...makePromise(item.items),
             ];
@@ -195,7 +206,9 @@ class PdfParser extends Parser {
         Promise.all(makePromise(outline)).then((results) => {
           let pageMap = {};
           results.forEach((result) => {
-            pageMap = { ...pageMap, ...result };
+            if (isExists(result)) {
+              pageMap = { ...pageMap, ...result };
+            }
           });
           rawBook.pageMap = pageMap;
           resolveAll();

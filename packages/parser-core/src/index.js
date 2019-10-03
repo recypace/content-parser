@@ -1,5 +1,6 @@
 import AesCryptor from './AesCryptor';
 import CryptoProvider from './CryptoProvider';
+import { Hash } from './cryptoUtil';
 import Logger, { LogLevel } from './Logger';
 import Parser from './Parser';
 import Version from './Version';
@@ -7,6 +8,7 @@ import Version from './Version';
 export {
   AesCryptor,
   CryptoProvider,
+  Hash,
   Logger,
   LogLevel,
   Parser,
