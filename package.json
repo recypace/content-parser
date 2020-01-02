@@ -2,7 +2,7 @@
   "scripts": {
     "clean": "rimraf ./*.log && lerna exec --parallel -- rimraf coverage lib/* temp",
     "build": "yarn clean && lerna exec --parallel -- babel src --out-dir lib --config-file ../../.babelrc",
-    "test": "lerna exec --concurrency 1 -- nyc mocha ./test/**/*.spec.js --require ../../test.js --recursive",
+    "test": "lerna exec --concurrency 1 -- nyc mocha ./test --require ../../test.js --recursive",
     "coverage": "codecov",
     "lint": "eslint packages",
     "postinstall": "yarn build && yarn bootstrap",

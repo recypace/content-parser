@@ -1,3 +1,4 @@
+/* istanbul ignore next */
 class ReadContext {
   constructor() {
     this.items = undefined;

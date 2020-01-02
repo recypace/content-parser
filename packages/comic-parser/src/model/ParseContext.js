@@ -1,5 +1,6 @@
 import Book from './Book';
 
+/* istanbul ignore next */
 class ParseContext {
   constructor() {
     this.options = undefined;
