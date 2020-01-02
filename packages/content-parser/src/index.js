@@ -2,6 +2,7 @@ import {
   AesCryptor,
   CryptoProvider,
   Errors,
+  Hash,
   LogLevel,
 } from '@ridi/parser-core';
 
@@ -17,6 +18,7 @@ export default {
   EpubBook,
   EpubParser,
   Errors,
+  Hash,
   LogLevel,
   PdfBook,
   PdfParser,

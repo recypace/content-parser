@@ -4,6 +4,7 @@ import {
   AesCryptor,
   CryptoProvider,
   Errors,
+  Hash,
   LogLevel,
   PdfBook,
   PdfParser,
@@ -14,6 +15,7 @@ describe('pdf-parser', () => {
     assert(AesCryptor.constructor !== null);
     assert(CryptoProvider.constructor !== null);
     assert(Errors !== null);
+    assert(Hash !== null);
     assert(LogLevel !== null);
     assert(PdfBook.constructor !== null);
     assert(PdfParser.constructor !== null);

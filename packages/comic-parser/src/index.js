@@ -2,6 +2,7 @@ import {
   AesCryptor,
   CryptoProvider,
   Errors,
+  Hash,
   LogLevel,
 } from '@ridi/parser-core';
 
@@ -14,5 +15,6 @@ export default {
   ComicBook: Book,
   CryptoProvider,
   Errors,
+  Hash,
   LogLevel,
 };

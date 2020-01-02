@@ -9,6 +9,7 @@ import {
   EpubParser,
   Errors,
   LogLevel,
+  Hash,
   PdfBook,
   PdfParser,
 } from '../src/index';
@@ -22,6 +23,7 @@ describe('content-parser', () => {
     assert(EpubBook.constructor !== null);
     assert(EpubParser.constructor !== null);
     assert(Errors !== null);
+    assert(Hash !== null);
     assert(LogLevel !== null);
     assert(PdfBook.constructor !== null);
     assert(PdfParser.constructor !== null);

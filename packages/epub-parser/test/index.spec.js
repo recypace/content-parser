@@ -6,6 +6,7 @@ import {
   EpubBook,
   EpubParser,
   Errors,
+  Hash,
   LogLevel,
 } from '../src/index';
 
@@ -16,6 +17,7 @@ describe('epub-parser', () => {
     assert(EpubBook.constructor !== null);
     assert(EpubParser.constructor !== null);
     assert(Errors !== null);
+    assert(Hash !== null);
     assert(LogLevel !== null);
   });
 });
